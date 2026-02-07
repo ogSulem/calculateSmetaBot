@@ -44,6 +44,7 @@ async def main() -> None:
 
     app = web.Application()
     app.router.add_post('/webhook', handle_webhook)
+    app.router.add_get('/health', lambda r: web.Response(text="OK"))
 
     # Start server
     runner = web.AppRunner(app)
